@@ -11,5 +11,5 @@
 @interface Clas : NSObject
 @property (copy,nonatomic)  NSString * classId ;
 @property (strong,nonatomic) NSMutableArray * students ;
--(void)setMyStudent:(Student *)student ;
+
 @end

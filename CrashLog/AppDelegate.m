@@ -15,16 +15,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
-//    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
-//    NSString *timeString = [NSString stringWithFormat:@"%.0f", [dat timeIntervalSince1970]];
-//    NSLog(@"--------nowtimeStr-----------%@",timeString);
-//    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-//    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-//    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-//    [dateFormatter setDateFormat:@"yyyyMMddHHMMss"];
-//    NSDate * date = [dateFormatter dateFromString:timeString];
-//    NSLog(@"------date--%@",date);
+
     return YES;
 }
 
@@ -48,15 +39,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-void UncaughtExceptionHandler(NSException *exception){
-    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
-    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
-    NSString *name = [exception name];//异常类型
-    [[NSUserDefaults  standardUserDefaults] setObject:reason forKey:@"error_reason"];
-  [[NSUserDefaults  standardUserDefaults] setObject:name forKey:@"error_name"];
-    [[NSUserDefaults standardUserDefaults]setObject:[CurentTime getCurentTime] forKey:@"error_time"];
-       [[NSUserDefaults standardUserDefaults]setObject:arr forKey:@"error_arr"];
-    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
-}
+//void UncaughtExceptionHandler(NSException *exception){
+//    NSArray *arr = [exception callStackSymbols];//得到当前调用栈信息
+//    NSString *reason = [exception reason];//非常重要，就是崩溃的原因
+//    NSString *name = [exception name];//异常类型
+//    [[NSUserDefaults  standardUserDefaults] setObject:reason forKey:@"error_reason"];
+//  [[NSUserDefaults  standardUserDefaults] setObject:name forKey:@"error_name"];
+//    [[NSUserDefaults standardUserDefaults]setObject:[CurentTime getCurentTime] forKey:@"error_time"];
+//       [[NSUserDefaults standardUserDefaults]setObject:arr forKey:@"error_arr"];
+//    NSLog(@"exception type : %@ \n crash reason : %@ \n call stack info : %@", name, reason, arr);
+//}
 
 @end

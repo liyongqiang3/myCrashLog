@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		47C7E27FC164223C57DAD936 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6682ECCBBA6E6E7DAEA21053 /* libPods.a */; };
 		4C617E051A78E4BC00C3A855 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C617E041A78E4BC00C3A855 /* libsqlite3.dylib */; };
-		4C617E1A1A78E70500C3A855 /* TEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C617E191A78E70500C3A855 /* TEvent.m */; };
+		4C8FB2C41A79E20800D23A03 /* TEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FB2C31A79E20800D23A03 /* TEvent.m */; };
+		4C8FB2C71A7A242F00D23A03 /* TSqliteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FB2C61A7A242F00D23A03 /* TSqliteManager.m */; };
 		4CCE83A11A5FBAC6008B9A43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE83A01A5FBAC6008B9A43 /* main.m */; };
 		4CCE83A41A5FBAC6008B9A43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE83A31A5FBAC6008B9A43 /* AppDelegate.m */; };
 		4CCE83A71A5FBAC6008B9A43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE83A61A5FBAC6008B9A43 /* ViewController.m */; };
@@ -36,8 +37,10 @@
 /* Begin PBXFileReference section */
 		39025A47E8C95E1B7DFC3EF5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4C617E041A78E4BC00C3A855 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		4C617E181A78E70500C3A855 /* TEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEvent.h; sourceTree = "<group>"; };
-		4C617E191A78E70500C3A855 /* TEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEvent.m; sourceTree = "<group>"; };
+		4C8FB2C21A79E20800D23A03 /* TEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEvent.h; sourceTree = "<group>"; };
+		4C8FB2C31A79E20800D23A03 /* TEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEvent.m; sourceTree = "<group>"; };
+		4C8FB2C51A7A242F00D23A03 /* TSqliteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSqliteManager.h; sourceTree = "<group>"; };
+		4C8FB2C61A7A242F00D23A03 /* TSqliteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSqliteManager.m; sourceTree = "<group>"; };
 		4CCE839B1A5FBAC6008B9A43 /* CrashLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCE839F1A5FBAC6008B9A43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCE83A01A5FBAC6008B9A43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,13 +95,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4C617E171A78E61D00C3A855 /* model */ = {
+		4C8FB2C11A79E1F200D23A03 /* mySqlite */ = {
 			isa = PBXGroup;
 			children = (
-				4C617E181A78E70500C3A855 /* TEvent.h */,
-				4C617E191A78E70500C3A855 /* TEvent.m */,
+				4C8FB2C21A79E20800D23A03 /* TEvent.h */,
+				4C8FB2C31A79E20800D23A03 /* TEvent.m */,
+				4C8FB2C51A7A242F00D23A03 /* TSqliteManager.h */,
+				4C8FB2C61A7A242F00D23A03 /* TSqliteManager.m */,
 			);
-			path = model;
+			path = mySqlite;
 			sourceTree = "<group>";
 		};
 		4CCE83921A5FBAC6008B9A43 = {
@@ -125,7 +130,7 @@
 		4CCE839D1A5FBAC6008B9A43 /* CrashLog */ = {
 			isa = PBXGroup;
 			children = (
-				4C617E171A78E61D00C3A855 /* model */,
+				4C8FB2C11A79E1F200D23A03 /* mySqlite */,
 				4CCE83A21A5FBAC6008B9A43 /* AppDelegate.h */,
 				4CCE83A31A5FBAC6008B9A43 /* AppDelegate.m */,
 				4CCE83A51A5FBAC6008B9A43 /* ViewController.h */,
@@ -316,12 +321,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CCE83C91A5FC037008B9A43 /* Clas.m in Sources */,
+				4C8FB2C71A7A242F00D23A03 /* TSqliteManager.m in Sources */,
 				4CCE83A71A5FBAC6008B9A43 /* ViewController.m in Sources */,
 				4CCE83A41A5FBAC6008B9A43 /* AppDelegate.m in Sources */,
 				4CCE83CC1A5FC670008B9A43 /* CurentTime.m in Sources */,
 				4CCE83A11A5FBAC6008B9A43 /* main.m in Sources */,
+				4C8FB2C41A79E20800D23A03 /* TEvent.m in Sources */,
 				4CCE83C61A5FBF66008B9A43 /* Student.m in Sources */,
-				4C617E1A1A78E70500C3A855 /* TEvent.m in Sources */,
 				4CCE83CF1A5FC9F5008B9A43 /* CrashLogStatistics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +454,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: SONG GUOFENG (4L2RR4SDZC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SONG GUOFENG (4L2RR4SDZC)";
 				INFOPLIST_FILE = CrashLog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8828e29-e697-45f2-bb96-5d8dde61869d";
@@ -463,7 +469,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: SONG GUOFENG (4L2RR4SDZC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SONG GUOFENG (4L2RR4SDZC)";
 				INFOPLIST_FILE = CrashLog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d8828e29-e697-45f2-bb96-5d8dde61869d";
